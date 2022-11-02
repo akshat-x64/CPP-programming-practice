@@ -4,33 +4,33 @@ using namespace std;
 
 int main(int argc, char const *argv[])
 {
-    string sample = "xobin^bootcamp";
-    string sampleModified = "";
-    int charCode = 0;
-    string aa;
+       string sample = "xobin^bootcamzZ";
+       string modified;
+       int code = 0;
+       for (int i = 0; i < sample.length(); i++)
+       {
+              code = sample[i];
+              if (code == 122)
+              {
+                     sample[i] = 97;
+                     continue;
+              }
+              else if (code == 90)
+              {
+                     sample[i] = 65;
+                     continue;
+              }
 
-    for (int i = 0; i < sample.length(); i++)
-    {
-        charCode = sample[i];
-        if ((charCode >= 97 && charCode <= 122) || (charCode >= 65 && charCode <= 90))
-        {
-
-            sample[i] = charCode + 1;
-        }
-
-        // cout << sample[i];
-    }
-    cout << sample << endl;
-
-    for (int i = 0; i < sample.length(); i++)
-    {
-        charCode = sample[i];
-        if (charCode == 97 || charCode == 101 || charCode == 105 || charCode == 111 || charCode == 117)
-        {
-            sample[i] = charCode - 32;
-        }
-    }
-    aa = sample;
-    cout << aa;
-    return 0;
+              else if (code >= 65 && code <= 90 || 97 <= code && code <= 122)
+              {
+                     sample[i] = sample[i] + 1;
+              }
+              else
+              {
+                     sample[i] = sample[i];
+              }
+       }
+       modified = sample;
+       cout << modified << endl;
+       return 0;
 }
